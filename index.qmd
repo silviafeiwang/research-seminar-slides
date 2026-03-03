@@ -21,3 +21,5 @@ execute:
 
 
 {{< include slides/01-intro.md >}}
+
+{{< include slides/02-dlg.md >}}

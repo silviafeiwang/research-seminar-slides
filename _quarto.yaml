@@ -1,6 +1,8 @@
 project:
   output-dir: docs
-  
+
 format:
   revealjs:
+    slide-number: true
+    center: false
     theme: theme.scss
