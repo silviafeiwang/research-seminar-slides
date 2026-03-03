@@ -1,0 +1,9 @@
+project:
+  output-dir: docs
+  
+format:
+  revealjs:
+    theme: theme.scss
+
+resources:
+  - media/uoft_logo.svg

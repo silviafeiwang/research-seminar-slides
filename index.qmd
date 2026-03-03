@@ -1,0 +1,18 @@
+---
+title: "Privacy"
+title-block-banner: true
+subtitle: "March 9, 2026"
+author: "Fei Wang, PhD"
+format: 
+    revealjs:
+        theme: theme.scss
+        margin: 0.04
+        incremental: true  
+        code-block-height: 300px
+        menu: true
+        slide-number: true
+---
+
+
+
+{{< include slides/01-intro.md >}}
