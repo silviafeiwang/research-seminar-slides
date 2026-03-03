@@ -11,6 +11,8 @@ format:
         code-block-height: 300px
         menu: true
         slide-number: true
+execute:
+  echo: false
 ---
 
 

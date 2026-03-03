@@ -120,12 +120,170 @@ $presentation-h3-font-size: 0.8em;
 .reveal::after {
     content: "";
     position: fixed;
-    bottom: 20px;
-    right: 25px;
-    width: 80px;
-    height: 80px;
+    bottom: 0px;
+    right: 0px;
+    width: 180px;
+    height: 180px;
     background: url("/media/uoft_logo.svg") no-repeat center;
     background-size: contain;
     opacity: 0.85;
     pointer-events: none;
+}
+
+
+/* timeline */
+.tl {
+    --pad: 60px;       /* safe margins */
+    --line-y: 62%;
+    --gap: 18px;
+    --connector: 64px;
+
+    position: relative;
+    width: 100%;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
+    height: 420px;
+    margin: 0.8rem auto 0 auto;
+    overflow: visible;
+}
+
+.tl-line {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--line-y);
+    transform: translateY(-50%);
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0b5f2a, #1f9a57);
+}
+
+.tl-items {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--line-y);
+    transform: translateY(-50%);
+    height: 0;
+}
+
+.tl-item {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    height: 0;
+}
+
+.tl-dot {
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: #0b5f2a;
+    box-shadow: 0 0 0 4px rgba(31, 154, 87, 0.15);
+    transform: translateX(-50%);
+}
+
+.tl-year {
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+    font-size: 0.5em;
+    color: #3f4a45;
+    white-space: nowrap;
+}
+
+.tl-connector {
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    background: #3f4a45;
+    transform: translateX(-50%);
+}
+
+.tl-item.above .tl-connector {
+    top: calc(-1 * var(--connector));
+    height: var(--connector);
+}
+
+.tl-item.below .tl-connector {
+    top: 0;
+    height: var(--connector);
+}
+
+.tl-connector::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #3f4a45;
+    transform: translateX(-50%);
+}
+
+.tl-item.above .tl-connector::after { top: -5px; }
+.tl-item.below .tl-connector::after { bottom: -5px; }
+
+.tl-box {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: clamp(140px, 16vw, 200px);
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #f0eef8;
+    color: #3f4a45;
+    font-size: 0.5em;
+    line-height: 1.2;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    --x: -50%;
+    --y: 0;
+    transform: translate(var(--x), var(--y));
+    z-index: 1;
+}
+
+.tl-box .boxtitle {
+    font-weight: 600;
+    color: #3f4a45;
+    margin-bottom: 4px;
+}
+
+.tl-item.above .tl-box {
+    --y: calc(-100% - var(--connector) - var(--gap));
+    --x: calc(-50% - 10px);
+}
+
+.tl-item.below .tl-box {
+    --y: calc(var(--connector) + var(--gap));
+    --x: calc(-50% + 10px);
+}
+
+/* edge handling so boxes stay inside */
+.tl-item.edge-left { transform: translateX(0%); }
+.tl-item.edge-right { transform: translateX(-100%); }
+
+.tl-item.edge-left .tl-dot,
+.tl-item.edge-left .tl-year,
+.tl-item.edge-left .tl-connector,
+.tl-item.edge-left .tl-box {
+    left: 0;
+    --x: 0%;
+}
+
+.tl-item.edge-right .tl-dot,
+.tl-item.edge-right .tl-year,
+.tl-item.edge-right .tl-connector,
+.tl-item.edge-right .tl-box {
+    left: 100%;
+    --x: -100%;
+}
+
+.tl-item.no-box .tl-connector,
+.tl-item.no-box .tl-box {
+    display: none;
 }
