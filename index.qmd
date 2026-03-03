@@ -1,8 +1,11 @@
 ---
-title: "Privacy"
-title-block-banner: true
-subtitle: "March 9, 2026"
+title: "Toward Trustworthy Learning and Control in Distributed Intelligent Systems"
 author: "Fei Wang, PhD"
+title-slide-attributes:
+  data-background-image: "media/uoft_logo.svg"
+  data-background-size: "180px 180px"
+  data-background-position: "center bottom"
+  data-background-repeat: "no-repeat"
 format: 
     revealjs:
         theme: theme.scss

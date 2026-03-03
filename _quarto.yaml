@@ -4,6 +4,3 @@ project:
 format:
   revealjs:
     theme: theme.scss
-
-resources:
-  - media/uoft_logo.svg
